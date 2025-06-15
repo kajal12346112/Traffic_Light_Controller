@@ -42,75 +42,75 @@ module Traffic_Light_Controller(
             count <= 0;
         end
         else
-         begin
-            case (ps)
+        begin
+ case (ps)
                 S1: if (count < sec7)
                  begin
-                        ps <= S1;
-                         count <= count + 1;
+                 ps <= S1;
+                 count <= count + 1;
                     end 
                     else 
                     begin
-                        ps <= S2;
-                         count <= 0;
+                 ps <= S2;
+                count <= 0;
                     end
                 S2: if (count < sec2)
                  begin
-                        ps <= S2; 
-                        count <= count + 1;
+                 ps <= S2; 
+                 count <= count + 1;
                     end
                      else
                       begin
-                        ps <= S3;
-                         count <= 0;
+                ps <= S3;
+                 count <= 0;
                     end
                 S3: if (count < sec5) 
                 begin
-                        ps <= S3; 
-                        count <= count + 1;
+                 ps <= S3; 
+                 count <= count + 1;
                     end 
                     else 
                     begin
-                        ps <= S4; 
-                        count <= 0;
+                 ps <= S4; 
+                 count <= 0;
                     end
                 S4: if (count < sec2) 
                 begin
-                        ps <= S4; 
-                        count <= count + 1;
+                 ps <= S4; 
+                count <= count + 1;
                     end 
                     else
                      begin
-                        ps <= S5;
-                         count <= 0;
+                ps <= S5;
+                 count <= 0;
                     end
                 S5: if (count < sec3)
                  begin
-                        ps <= S5;
-                         count <= count + 1;
+                 ps <= S5;
+                 count <= count + 1;
                     end 
                     
                     else begin
-                        ps <= S6; 
-                        count <= 0;
+                ps <= S6; 
+                 count <= 0;
                     end
                 S6: if (count < sec2)
                  begin
-                        ps <= S6;
-                         count <= count + 1;
+                 ps <= S6;
+                 count <= count + 1;
                     end 
                     else
                      begin
-                        ps <= S1;
-                         count <= 0;
+                 ps <= S1;
+                 count <= 0;
                     end
                 default: begin
                     ps <= S1;
                     count <= 0;
-                end
-            endcase
-        end
-    end
+                    end
+                endcase
+               end
+               end
 
     always @(ps) begin
         case (ps)
